@@ -1,0 +1,17 @@
+method: bayes  # Options: grid, random, bayes
+metric:
+  name: episode_reward
+  goal: maximize
+parameters:
+  learning_rate:
+    distribution: uniform
+    min: 1e-5
+    max: 1e-3
+  batch_size:
+    values: [ 32, 64, 128 ]
+  n_steps:
+    values: [ 1024, 2048, 4096 ]
+  n_epochs:
+    values: [ 5, 10, 20 ]
+  total_timesteps:
+    values: [ 1000000, 2000000 ]
