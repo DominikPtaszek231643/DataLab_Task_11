@@ -1,0 +1,43 @@
+{
+  "os": "Windows-10-10.0.22631-SP0",
+  "python": "CPython 3.9.20",
+  "startedAt": "2024-12-21T18:21:56.072435Z",
+  "program": "C:\\Users\\kacsa\\OneDrive\\Pulpit\\university\\Year 2\\Block B\\DataLabTask11\\task11\\train_rl.py",
+  "codePath": "task11\\train_rl.py",
+  "git": {
+    "remote": "https://github.com/DominikPtaszek231643/DataLab_Task_11.git",
+    "commit": "e51225c42d8737a01502dbc49df7a8c9e40ce17e"
+  },
+  "email": "231643@buas.nl",
+  "root": "C:\\Users\\kacsa\\OneDrive\\Pulpit\\university\\Year 2\\Block B\\DataLabTask11\\task11",
+  "host": "Laptop",
+  "username": "kacsa",
+  "executable": "C:\\Users\\kacsa\\anaconda3\\envs\\use_gpu_model_training\\python.exe",
+  "codePathLocal": "train_rl.py",
+  "cpu_count": 8,
+  "cpu_count_logical": 12,
+  "gpu": "NVIDIA GeForce RTX 3060 Laptop GPU",
+  "gpu_count": 1,
+  "disk": {
+    "/": {
+      "total": "644245090304",
+      "used": "520427962368"
+    }
+  },
+  "memory": {
+    "total": "68431241216"
+  },
+  "cpu": {
+    "count": 8,
+    "countLogical": 12
+  },
+  "gpu_nvidia": [
+    {
+      "name": "NVIDIA GeForce RTX 3060 Laptop GPU",
+      "memoryTotal": "6442450944",
+      "cudaCores": 3840,
+      "architecture": "Ampere"
+    }
+  ],
+  "cudaVersion": "12.4"
+}

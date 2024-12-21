@@ -1,0 +1,16 @@
+{"time":"2024-12-21T19:21:56.073558+01:00","level":"INFO","msg":"using version","core version":"0.19.0"}
+{"time":"2024-12-21T19:21:56.0740641+01:00","level":"INFO","msg":"created symlink","path":"C:\\Users\\kacsa\\OneDrive\\Pulpit\\university\\Year 2\\Block B\\DataLabTask11\\task11\\wandb\\run-20241221_192156-k9nq4ivi\\logs\\debug-core.log"}
+{"time":"2024-12-21T19:21:56.1885173+01:00","level":"INFO","msg":"created new stream","id":"k9nq4ivi"}
+{"time":"2024-12-21T19:21:56.1885173+01:00","level":"INFO","msg":"stream: started","id":"k9nq4ivi"}
+{"time":"2024-12-21T19:21:56.1885173+01:00","level":"INFO","msg":"handler: started","stream_id":"k9nq4ivi"}
+{"time":"2024-12-21T19:21:56.1885173+01:00","level":"INFO","msg":"writer: Do: started","stream_id":"k9nq4ivi"}
+{"time":"2024-12-21T19:21:56.1885173+01:00","level":"INFO","msg":"sender: started","stream_id":"k9nq4ivi"}
+{"time":"2024-12-21T19:21:56.6230432+01:00","level":"INFO","msg":"Starting system monitor"}
+{"time":"2024-12-21T19:26:05.611794+01:00","level":"INFO","msg":"stream: closing","id":"k9nq4ivi"}
+{"time":"2024-12-21T19:26:05.611794+01:00","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2024-12-21T19:26:05.6123012+01:00","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2024-12-21T19:26:07.1031173+01:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2024-12-21T19:26:07.4837397+01:00","level":"INFO","msg":"handler: closed","stream_id":"k9nq4ivi"}
+{"time":"2024-12-21T19:26:07.4837397+01:00","level":"INFO","msg":"sender: closed","stream_id":"k9nq4ivi"}
+{"time":"2024-12-21T19:26:07.4837397+01:00","level":"INFO","msg":"writer: Close: closed","stream_id":"k9nq4ivi"}
+{"time":"2024-12-21T19:26:07.4837397+01:00","level":"INFO","msg":"stream: closed","id":"k9nq4ivi"}
