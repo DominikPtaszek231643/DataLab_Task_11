@@ -4,13 +4,15 @@ train_rl.py
 Script for Task 11:
 - Trains an RL model (PPO, by default) on the OT2Env environment.
 - Logs training metrics to Weights & Biases (wandb).
-- Optionally integrates with ClearML if desired.
+- Optionally integrates with ClearML if desired. s
 """
 
 import argparse
 import os
 import sys
 
+# If using ClearML:
+from clearml import Task
 from stable_baselines3 import PPO  # or SAC, TD3, etc.
 from stable_baselines3.common.vec_env import DummyVecEnv
 from wandb.integration.sb3 import WandbCallback
@@ -18,9 +20,6 @@ from wandb.integration.sb3 import WandbCallback
 import wandb
 # Import your custom environment
 from ot2_gym_wrapper import OT2Env
-
-# If using ClearML:
-from clearml import Task
 
 # If using ClearML, uncomment and adapt the lines below:
 task = Task.init(project_name="Mentor Group J/Group 1", task_name="OT2-RL-Training_initial_tuning_test_Dominik")
