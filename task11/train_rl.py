@@ -107,7 +107,6 @@ try:
     model = PPO(
         policy="MlpPolicy",
         env=env,
-        device='cpu',
         verbose=1,
         learning_rate=args.learning_rate,
         batch_size=args.batch_size,
