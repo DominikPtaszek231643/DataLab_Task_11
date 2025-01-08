@@ -6,9 +6,11 @@ Script for Task 11:
 - Logs training metrics to Weights & Biases (wandb).
 - Optionally integrates with ClearML if desired. s
 """
-
-import argparse
 import os
+
+os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
+import argparse
+
 import sys
 
 # If using ClearML:
