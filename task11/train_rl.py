@@ -22,7 +22,7 @@ import wandb
 from ot2_gym_wrapper import OT2Env
 
 # If using ClearML, uncomment and adapt the lines below:
-task = Task.init(project_name="Mentor Group J/Group 1", task_name="OT2-RL-Training_initial_tuning_test_Dominik")
+task = Task.init(project_name="Mentor Group J/Group 1", task_name="testing_tuning_test_Dominik")
 task.set_base_docker('deanis/2023y2b-rl:latest')
 task.execute_remotely(queue_name="default")
 
