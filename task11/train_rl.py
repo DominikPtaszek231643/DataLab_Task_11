@@ -14,7 +14,6 @@ import argparse
 import sys
 
 # If using ClearML:
-from clearml import Task
 from stable_baselines3 import PPO  # or SAC, TD3, etc.
 from stable_baselines3.common.vec_env import DummyVecEnv
 from wandb.integration.sb3 import WandbCallback
@@ -44,6 +43,7 @@ parser.add_argument("--total_timesteps", type=int, default=200_000, help="Total 
 parser.add_argument("--project_name", type=str, default="Mentor Group J_Group 1", help="W&B project name")
 parser.add_argument("--env_render", type=bool, default=False, help="If set, render PyBullet GUI")
 parser.add_argument("--seed", type=int, default=42, help="Random seed")
+parser.add_argument("--gamma", type=float, default=0.99, help="Discount factor")
 
 args = parser.parse_args()
 
@@ -73,6 +73,7 @@ run = wandb.init(
         "total_timesteps": args.total_timesteps,
         "env_render": args.env_render,
         "seed": args.seed,
+        "gamma": args.gamma
     },
 )
 
@@ -110,7 +111,8 @@ try:
         n_steps=args.n_steps,
         n_epochs=args.n_epochs,
         tensorboard_log=f"runs/{run.id}",
-        seed=args.seed
+        seed=args.seed,
+        gamma=args.gamma
     )
 except Exception as e:
     print(f"Error defining the model: {e}")

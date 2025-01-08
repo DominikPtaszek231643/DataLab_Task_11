@@ -165,35 +165,74 @@ class OT2Env(gym.Env):
             *self.goal_position
         ], dtype=np.float32)
 
+        # # Calculate distance to goal
+        # distance = np.linalg.norm(pipette_pos - self.goal_position)
+        #
+        # # Base reward is the negative distance
+        # reward = -distance
+        #
+        # # Reward shaping based on progress
+        # if self.previous_distance is not None:
+        #     distance_reduction = self.previous_distance - distance
+        #     progress_reward = 0.2 * distance_reduction  # Adjust the coefficient as needed
+        #     reward += progress_reward
+        #
+        # self.previous_distance = distance  # Update for the next step
+        #
+        # # Bonus for reaching the goal
+        # termination_threshold = 0.001  # Threshold in meters
+        # if distance < termination_threshold:
+        #     reward += 10  # Bonus for reaching the goal
+        #     terminated = True
+        # else:
+        #     terminated = False
+        #
+        # # Time penalty to encourage faster solutions
+        # time_penalty = -0.001  # Small negative reward each step
+        # reward += time_penalty
+        #
+        # # Penalty for large actions to discourage erratic movements
+        # action_magnitude = np.linalg.norm(action[:3])  # Considering only velocity components
+        # action_penalty = -0.01 * action_magnitude  # Adjust the coefficient as needed
+        # reward += action_penalty
+
         # Calculate distance to goal
         distance = np.linalg.norm(pipette_pos - self.goal_position)
 
-        # Base reward is the negative distance
+        # Base reward: negative distance
         reward = -distance
 
-        # Reward shaping based on progress
+        # Reward for reducing the distance
         if self.previous_distance is not None:
             distance_reduction = self.previous_distance - distance
-            progress_reward = 0.1 * distance_reduction  # Adjust the coefficient as needed
+            progress_reward = 0.2 * distance_reduction  # Increase weight for progress
             reward += progress_reward
 
-        self.previous_distance = distance  # Update for the next step
+        # Penalize overshooting for accuracy
+        overshoot_penalty = 0.0
+        for i in range(3):  # x, y, z axes
+            if pipette_pos[i] > self.goal_position[i]:  # Overshot on this axis
+                overshoot_penalty += (pipette_pos[i] - self.goal_position[i]) ** 2
+        reward -= 0.5 * overshoot_penalty  # Adjust penalty scaling factor
+
+        # Update previous distance
+        self.previous_distance = distance
 
         # Bonus for reaching the goal
-        termination_threshold = 0.001  # Threshold in meters
+        termination_threshold = 0.001  # Accuracy requirement: 1 mm
         if distance < termination_threshold:
-            reward += 10  # Bonus for reaching the goal
+            reward += 20  # Higher bonus for reaching the goal accurately
             terminated = True
         else:
             terminated = False
 
-        # Time penalty to encourage faster solutions
-        time_penalty = -0.001  # Small negative reward each step
+        # Adjust time penalty to avoid rushing
+        time_penalty = -0.0005  # Smaller penalty per step
         reward += time_penalty
 
-        # Penalty for large actions to discourage erratic movements
-        action_magnitude = np.linalg.norm(action[:3])  # Considering only velocity components
-        action_penalty = -0.01 * action_magnitude  # Adjust the coefficient as needed
+        # Penalty for large or erratic actions
+        action_magnitude = np.linalg.norm(action[:3])  # Considering velocity components
+        action_penalty = -0.01 * action_magnitude
         reward += action_penalty
 
         # Determine if the episode should be truncated based on step count
