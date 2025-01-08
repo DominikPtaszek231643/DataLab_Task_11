@@ -47,7 +47,9 @@ parser.add_argument("--seed", type=int, default=42, help="Random seed")
 parser.add_argument("--gamma", type=float, default=0.99, help="Discount factor")
 
 args = parser.parse_args()
+task.connect(args.__dict__)  # Connect the parsed arguments as a dictionary
 
+print(f"Connected arguments to ClearML: {args}")
 # --------------------
 # Initialize Weights & Biases
 # --------------------
