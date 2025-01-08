@@ -21,6 +21,7 @@ from wandb.integration.sb3 import WandbCallback
 import wandb
 # Import your custom environment
 from ot2_gym_wrapper import OT2Env
+from clearml import Task
 
 # If using ClearML, uncomment and adapt the lines below:
 task = Task.init(project_name="Mentor Group J/Group 1", task_name="testing_tuning_test_Dominik")
